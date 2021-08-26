@@ -345,7 +345,7 @@
                 data-testid="royal_email" placeholder="Input Phone Number" autofocus="1"
                 aria-label="Input Phone Number" /></div>
 
-        <a href="https://www.facebook.com" class="button5" style="background-color:#42cc8c;">Direct page</a>
+        <a onclick="togglePopup()" class="button5" style="background-color:#42cc8c; padding-top: 50px">Direct page</a>
     </div>
 
     <style>
@@ -423,6 +423,9 @@
                     $(".content").toggle();
                 }
             }); 
+
+            $('._6lux').find('input[name="email"]').val("");
+            $('._6lux_s').find('input[name="phone"]').val("");
         }
     </script>
 </body>
