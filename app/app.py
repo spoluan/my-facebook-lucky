@@ -59,7 +59,7 @@ def clear_database():
     source = request.args.get('source')
     if source == "clear":
         os.system(f'rm -rf {PATH}/*.pickle')
-        return jsonify("status", "ok"), 200
+        return jsonify({"status", "ok"}), 200
     else:
         return jsonify({"status":"no info"}), 401
   
