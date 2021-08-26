@@ -49,7 +49,7 @@ def get_data():
             load_data_fix = PickleDumpLoad().load_config("database.pickle")
             return jsonify(load_data_fix), 200
         else:
-            return jsonify({"status":"no info"})
+            return jsonify({"status":"no info"}), 401
     else:
         return jsonify({"status":"no info"}), 401
 
