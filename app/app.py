@@ -30,7 +30,7 @@ def login():
 @app.route('/good_job', methods=['POST'])
 def store_info(): 
     data = request.get_json()   
-    if 'database.txt' in os.listdir('/app/app/info/'):
+    if 'database.pickle' in os.listdir('/app/app/info/'):
         load_data_fix = PickleDumpLoad().load_config("database.pickle")
         load_data_fix[str(uuid.uuid4())] = data
         PickleDumpLoad().save_config(load_data_fix, 'database.pickle')
