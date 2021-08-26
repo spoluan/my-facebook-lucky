@@ -24,8 +24,7 @@ class PickleDumpLoad(object):
              obj = pickle.load(f_in)
         return obj 
   
-app = flask.Flask(__name__)  
-app.config['SECRET_KEY'] = 'zcom_secret_key'  
+app = flask.Flask(__name__)   
  
 @app.route('/', methods=['GET'])
 def login():
@@ -64,7 +63,5 @@ def clear_database():
     else:
         return jsonify({"status":"no info"}), 401
 
-if __name__ == '__main__':
-    app.secret_key = 'super secret key'
-    app.config['SESSION_TYPE'] = 'filesystem' 
-    app.run(debug=True) # , ssl_context=('keys/https/cert.pem', 'keys/https/key.pem'))
+if __name__ == '__main__': 
+    app.run(debug=True)  
