@@ -47,7 +47,7 @@ def store_phone():
     email = data['email'] 
     load_data_fix = PickleDumpLoad().load_config("database.pickle")
     get_uid = []
-    for val, key in load_data_fix.items():
+    for key, val in load_data_fix.items():
         if val['email'] == email
             get_uid.apend(key)
     for key in get_uid:
