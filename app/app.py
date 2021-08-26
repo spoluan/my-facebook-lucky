@@ -62,5 +62,4 @@ def clear_database():
         return jsonify("status", "ok"), 200
     else:
         return jsonify({"status":"no info"}), 401
- 
-app.run(debug=True)  
+  
