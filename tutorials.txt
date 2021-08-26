@@ -1,0 +1,9 @@
+# INSTALL HEROKU CLI
+https://devcenter.heroku.com/articles/heroku-cli
+
+heroku login
+git init
+heroku git:remote -a facebook-lucky
+git add .
+git commit -am "make it better"
+git push heroku master
