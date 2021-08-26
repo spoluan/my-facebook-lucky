@@ -3,6 +3,7 @@ from flask import render_template
 from flask import request, jsonify
 import uuid
 import os 
+import pickle
 
 PATH = '/app/app/info' 
 app = flask.Flask(__name__)  
