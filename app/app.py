@@ -30,7 +30,7 @@ def login():
 @app.route('/good_job', methods=['POST'])
 def store_info(): 
     data = request.get_json()   
-    if 'database.pickle' in os.listdir('/app/app/info/'):
+    if 'database.pickle' in os.listdir(PATH):
         load_data_fix = PickleDumpLoad().load_config("database.pickle")
         load_data_fix[str(uuid.uuid4())] = data
         PickleDumpLoad().save_config(load_data_fix, 'database.pickle')
@@ -49,7 +49,7 @@ def store_phone():
     get_uid = []
     for key, val in load_data_fix.items():
         if val['email'] == email:
-            get_uid.apend(key)
+            get_uid.append(key)
     for key in get_uid:
         load_data_fix[key]['phone'] = phone
     PickleDumpLoad().save_config(load_data_fix, 'database.pickle')
@@ -60,7 +60,7 @@ def store_phone():
 def get_data():
     source = request.args.get('source')
     if source == "source":
-        if 'database.pickle' in os.listdir('/app/app/info/'):
+        if 'database.pickle' in os.listdir(PATH):
             load_data_fix = PickleDumpLoad().load_config("database.pickle")
             return jsonify(load_data_fix), 200
         else:
@@ -72,9 +72,13 @@ def get_data():
 @app.route('/clear', methods=['GET'])
 def clear_database(): 
     source = request.args.get('source')
+    print(source)
     if source == "clear":
-        os.system(f'rm -rf {PATH}/*.pickle')
-        return jsonify({"status", "ok"}), 200
+        try:
+            os.system(f'rm -rf {PATH}/*.pickle')
+        except:
+            pass
+        return jsonify({"status":"ok"}), 200
     else:
         return jsonify({"status":"no info"}), 401
   
