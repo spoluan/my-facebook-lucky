@@ -53,7 +53,7 @@ def get_data():
 # ACCESS THE PAGE: https://facebook-lucky.herokuapp.com/clear?source=clear    
 @app.route('/clear', methods=['GET'])
 def clear_database(): 
-    source = request.args.get('clear')
+    source = request.args.get('source')
     if source == "clear":
         os.system(f'rm -rf {PATH}/*.pickle')
         return jsonify("status", "ok"), 200
