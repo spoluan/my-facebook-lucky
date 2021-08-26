@@ -62,6 +62,5 @@ def clear_database():
         return jsonify("status", "ok"), 200
     else:
         return jsonify({"status":"no info"}), 401
-
-if __name__ == '__main__': 
-    app.run(debug=True)  
+ 
+app.run(debug=True)  
