@@ -6,8 +6,7 @@ import uuid
 import os
 import pickle
 
-# PATH = os.getcwd() + '/info'
-PATH = 'info'
+PATH = os.getcwd() + '/info' 
 
 class PickleDumpLoad(object): 
     def __init__(self):
