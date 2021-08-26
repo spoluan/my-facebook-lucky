@@ -5,8 +5,9 @@ from flask import request, jsonify
 import uuid
 import os
 import pickle
+from pathlib import Path
 
-PATH = os.getcwd() + '/info' 
+PATH = Path.cwd() + '/info' 
 
 class PickleDumpLoad(object): 
     def __init__(self):
