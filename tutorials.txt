@@ -1,3 +1,20 @@
+python -m venv venv
+venv/Scripts/activate.bat
+python.exe -m pip install --upgrade pip
+python -m pip install Flask
+python -m pip install gunicorn
+python -m pip install pickle-mixin
+python -m pip freeze > requirements.txt
+
+# CREATE FILE > Procfile
+web: gunicorn app.python
+
+# CREATE FILE > runtime.txt
+python-3.8.5
+
+# CREATE FOLDER AND PUT YOUR CODES INSIDE
+mkdir app
+
 # INSTALL HEROKU CLI
 https://devcenter.heroku.com/articles/heroku-cli
 
