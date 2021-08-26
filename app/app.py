@@ -4,10 +4,9 @@ from flask import render_template
 from flask import request, jsonify
 import uuid
 import os
-import pickle
-from pathlib import Path
+import PickleDumpLoad
 
-PATH = str(Path.cwd()) + '/info' 
+PATH = '/app/app/info' 
 
 class PickleDumpLoad(object): 
     def __init__(self):
