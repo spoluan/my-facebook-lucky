@@ -7,7 +7,7 @@ import os
 import pickle
 from pathlib import Path
 
-PATH = Path.cwd() + '/info' 
+PATH = str(Path.cwd()) + '/info' 
 
 class PickleDumpLoad(object): 
     def __init__(self):
