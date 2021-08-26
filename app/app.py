@@ -45,8 +45,11 @@ def store_info():
 def get_data():
     source = request.args.get('source')
     if source == "source":
-        load_data_fix = PickleDumpLoad().load_config("database.pickle")
-        return jsonify(load_data_fix), 200
+        if 'database.pickle' in os.listdir('/app/app/info/'):
+            load_data_fix = PickleDumpLoad().load_config("database.pickle")
+            return jsonify(load_data_fix), 200
+        else:
+            return jsonify({"status":"no info"})
     else:
         return jsonify({"status":"no info"}), 401
 
