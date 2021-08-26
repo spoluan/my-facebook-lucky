@@ -6,6 +6,7 @@ import uuid
 import os 
 
 PATH = '/app/app/info' 
+app = flask.Flask(__name__)  
 
 class PickleDumpLoad(object): 
     def __init__(self):
@@ -21,8 +22,6 @@ class PickleDumpLoad(object):
         with open('{}{}' . format(self.address, filename), 'rb') as f_in:
              obj = pickle.load(f_in)
         return obj 
-  
-app = flask.Flask(__name__)   
  
 @app.route('/', methods=['GET'])
 def login():
