@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+
+@author: Sevendi Eldrige Rifki Poluan
+"""
+
 import flask 
 from flask import render_template
 from flask import request, jsonify
